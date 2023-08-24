@@ -22,12 +22,10 @@ class MoviesLoaderTest: XCTestCase {
         loader.loadMovies { result in
             // Then
             switch result {
-            case .success(let movies):
-                // сравниваем данные с тем, что мы предполагали
+            case .success(_):
                 expectation.fulfill()
             case .failure(_):
-                // мы не ожидаем, что пришла ошибка; если она появится, надо будет провалить тест
-                XCTFail("Unexpected failure") // эта функция проваливает тест
+                XCTFail("Unexpected failure")
             }
         }
         
@@ -37,7 +35,7 @@ class MoviesLoaderTest: XCTestCase {
     
     func testFailureLoading() throws {
         
-        let stubNetworkClient = StubNetworkClient(emulateError: true) // говорим, что хотим эмулировать ошибку
+        let stubNetworkClient = StubNetworkClient(emulateError: true) 
             let loader = MoviesLoader(networkClient: stubNetworkClient)
             
             // When

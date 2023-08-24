@@ -12,9 +12,6 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
 
     private var presenter: MovieQuizPresenter!
 
-//    private var statisticService: StatisticService?
-
-//    private var alertPresenter = AlertPresenter()
 
     // MARK: - Lifecycle
 
@@ -40,7 +37,6 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         presenter.noButtonClicked()
     }
     
-
     // MARK: - Private functions
 
     func show(quiz step: QuizStepViewModel) {
@@ -66,6 +62,8 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
             }
             
             alert.addAction(action)
+        
+ //          alert.view.accessibilityIdentifier = "Game results"
             
             self.present(alert, animated: true, completion: nil)
         }
